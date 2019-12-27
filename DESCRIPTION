@@ -9,3 +9,5 @@ Description: rexpect provides a pipeable interface that allows you to automate i
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/datascienceworkshops/rexpect
+BugReports: https://github.com/datascienceworkshops/rexpect/issues
