@@ -1,13 +1,11 @@
 Package: rexpect
-Title: What the Package Does (One Line, Title Case)
+Title: Automate Interactive Applications
 Version: 0.0.0.9000
-Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+Authors@R: c(
+    person("Jeroen", "Janssens", email = "jeroen@datascienceworkshops.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5878-8924")),
+    person("Data Science Workshops", role = c("cph", "fnd"))
+    )  
+Description: rexpect provides a pipeable interface that allows you to automate interactions with programs that expose a text terminal interface. The API is based on the original Expect tool by Don Libes.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
