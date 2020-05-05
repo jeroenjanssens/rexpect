@@ -4,7 +4,7 @@
 # rexpect <img src="man/figures/logo.png" align="right" width="100px" />
 
 [![R build
-status](https://github.com/datascienceworkshops/rexpect/workflows/R-CMD-check/badge.svg)](https://github.com/datascienceworkshops/expect/actions)
+status](https://github.com/datascienceworkshops/rexpect/workflows/R-CMD-check/badge.svg)](https://github.com/datascienceworkshops/rexpect/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rexpect)](https://CRAN.R-project.org/package=rexpect)
 [![Lifecycle:
