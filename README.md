@@ -1,17 +1,18 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rexpect
+# rexpect <img src="man/figures/logo.png" align="right" width="100px" />
 
-<!-- badges: start -->
-
+[![R build
+status](https://github.com/datascienceworkshops/rexpect/workflows/R-CMD-check/badge.svg)](https://github.com/datascienceworkshops/expect/actions)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rexpect)](https://CRAN.R-project.org/package=rexpect)
-<!-- badges: end -->
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-`rexpect` provides a pipeable interface that allows you to automate
-interactions with programs that expose a text terminal interface. The
-API is based on the original Expect tool by Don Libes.
+`rexpect` is an R package that allows you to automate interactions with
+programs that expose a text terminal interface. The API is inspired by
+the original Expect tool by Don Libes.
 
 ## Installation
 

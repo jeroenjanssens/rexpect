@@ -1,0 +1,7 @@
+pandoc: 2.8.1
+pkgdown: 1.5.1
+pkgdown_sha: ~
+articles:
+  experiment: experiment.html
+last_built: 2020-05-05T15:11Z
+

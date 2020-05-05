@@ -1,0 +1,56 @@
+destination: docs
+
+authors:
+  Jeroen Janssens:
+    href: https://jeroenjanssens.com
+  Data Science Workshops:
+    href: https://www.datascienceworkshops.com
+    html: <img class="data-science-workshops-logo" src="https://www.datascienceworkshops.com/assets/img/logo-dsw-flat-light.svg" />
+
+template:
+  params:
+    bootswatch: cosmo
+
+navbar:
+  title: "rexpect"
+  type: inverse
+  left:
+    - icon: fa-home fa-lg
+      href: index.html
+    - text: "Reference"
+      href: reference/index.html
+  right:
+   - icon: fa-github fa-lg
+     href: https://github.com/datascienceworkshops/rexpect
+
+reference:
+  - title: Spawn
+    contents:
+      - bye
+      - cmd
+      - spawn
+
+  - title: Send
+    contents:
+      - send_backspace
+      - send_control_c
+      - send_enter
+      - send_keys
+      - send_lines
+
+  - title: Expect
+    contents:
+      - ends_with_prompt
+      - expect_prompt
+      - get_prompt
+      - has_prompt
+      - prompts
+      - set_prompt
+
+  - title: Read
+    contents:
+      - read_screen
+
+  - title: Miscellaneous
+    contents:
+      - wait
