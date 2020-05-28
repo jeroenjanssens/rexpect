@@ -5,20 +5,8 @@ test_that("cmd works", {
 })
 
 
-test_that("length works", {
-  s <- spawn(cmd_bash(c("PS1='$ ' bash")), prompt = prompts$bash)
-  cat("\n---\n", s[], "\n---\n")
-  expect_prompt(s)
-  expect_length(s, 1)
-  send_enter(s)
-  cat("\n---\n", paste(s[], collapse = "\n"), "\n---\n")
-  expect_length(s, 2)
-  exit(s)
-})
-
-
 test_that("everything works", {
-  s <- spawn(cmd_bash(c("PS1='$ ' bash")))
+  s <- spawn(cmd_bash(c("PS1='$ ' bash")), width = 120)
   expect_warning(expect_prompt(s))
   prompt(s) <- prompts$bash
   expect_prompt(s)
@@ -33,9 +21,8 @@ test_that("everything works", {
   send_enter(s)
   expect_silence(s)
   expect_prompt(s)
-  output <- s[start:(length(s) - 1)]
-  cat("\n---\n", paste0(output, collapse = "\n"), "\n---\n")
-  expect_identical(output, c("$ echo hi", "hi", "$ seq 5", "1", "2", "3", "4", "5"))
+  output <- s[(length(s) - 5):(length(s) - 1)]
+  expect_identical(output, c("1", "2", "3", "4", "5"))
   expect_identical(tail(s[], -5), s[-c(1:5)])
   expect_error(s[c(-1, 1)])
   expect_identical(s[0], character())
