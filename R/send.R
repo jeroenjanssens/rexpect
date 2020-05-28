@@ -1,25 +1,13 @@
-#' Send keys
-#'
-#' @param session A rexpect_session.
-#' @param ... Strings. Keys to send.
-#' @param literal A logical. If `TRUE`, key name lookup is disabled and the keys
-#'   are processed as literal UTF-8 characters. Default: `FALSE`.
-#' @param count An integer. Number of times the keys are sent. Default: `1L`.
-#'
-#' @export
-send_keys <- function(session, ..., literal = FALSE, count = 1L) {
-  tmuxr::send_keys(session, ..., literal = literal, count = count)
-  invisible(session)
-}
-
-
 #' Send Enter
 #'
 #' @param session A rexpect_session.
 #'
 #' @return session
+#'
+#' @export
 send_enter <- function(session) {
-  send_keys(session, "Enter")
+  tmuxr::send_keys(session, "Enter")
+  invisible(session)
 }
 
 
@@ -28,8 +16,11 @@ send_enter <- function(session) {
 #' @param session A rexpect_session.
 #'
 #' @return session
+#'
+#' @export
 send_backspace <- function(session) {
-  send_keys(session, "BSpace")
+  tmuxr::send_keys(session, "BSpace")
+  invisible(session)
 }
 
 
@@ -38,8 +29,11 @@ send_backspace <- function(session) {
 #' @param session A rexpect_session.
 #'
 #' @return session
+#'
+#' @export
 send_control_c <- function(session) {
-  send_keys(session, "C-c")
+  tmuxr::send_keys(session, "C-c")
+  invisible(session)
 }
 
 
@@ -54,7 +48,7 @@ send_control_c <- function(session) {
 send_lines <- function(session, ..., wait = FALSE) {
   for (line in c(...)) {
     if (wait) expect_prompt(session)
-    send_keys(session, line, literal = TRUE)
+    tmuxr::send_keys(session, line, literal = TRUE)
     send_enter(session)
   }
   invisible(session)
