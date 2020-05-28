@@ -32,7 +32,7 @@ test_that("everything works", {
                   "sleep 0.5",
                   "done"), wait = TRUE)
   wait(s, 0.1)
-  expect_length(read_screen(s), 24)
+  expect_true(length(read_screen(s)) >= 23)
   expect_error(expect_silence(s, duration = 2, timeout = 3))
   wait(s, 1)
   send_control_c(s)
