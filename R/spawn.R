@@ -18,8 +18,9 @@ spawn <- function(command, name = NULL, prompt = NULL, width = 80, height = 24) 
 
   # get pane
   pane <- tmuxr::select_pane_active(session)
-  structure(list(prompt = prompt, pane = pane),
-            class = c("rexpect_session"))
+  structure(list(id = pane$id,
+                 prompt = prompt),
+            class = c("rexpect_session", class(pane)))
 }
 
 
@@ -28,7 +29,7 @@ spawn <- function(command, name = NULL, prompt = NULL, width = 80, height = 24) 
 #' @param session A rexpect_session.
 #'
 #' @export
-bye <- function(session) {
+exit <- function(session) {
   tmuxr::kill_pane(session$pane)
   invisible(NULL)
 }
@@ -39,10 +40,8 @@ bye <- function(session) {
 #' @param session A rexpect_session.
 #' @param duration A numerical. Time to wait in seconds. Default: `0.1`.
 #'
-#' @return session
-#'
 #' @export
 wait <- function(session, duration = 0.1) {
   Sys.sleep(duration)
-  session
+  invisible(session)
 }
