@@ -20,6 +20,7 @@ Imports:
 RoxygenNote: 7.1.0
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
 Suggests: 
+    covr,
     testthat,
     knitr,
     rmarkdown,
