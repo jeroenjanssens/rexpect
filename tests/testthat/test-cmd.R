@@ -5,6 +5,16 @@ test_that("cmd works", {
 })
 
 
+test_that("length works", {
+  s <- spawn(cmd_bash(c("PS1='$ ' bash")), prompt = prompts$bash)
+  expect_prompt(s)
+  expect_length(s, 1)
+  send_enter(s)
+  expect_length(s, 2)
+  exit(s)
+})
+
+
 test_that("everything works", {
   s <- spawn(cmd_bash(c("PS1='$ ' bash")))
   expect_warning(expect_prompt(s))
