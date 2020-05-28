@@ -16,12 +16,11 @@ LazyData: true
 URL: https://github.com/datascienceworkshops/rexpect
 BugReports: https://github.com/datascienceworkshops/rexpect/issues
 Imports: 
-    tmuxr (>= 0.2.2)
+    tmuxr (>= 0.2.4)
 RoxygenNote: 7.1.0
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
 Suggests: 
     testthat,
     knitr,
-    rmarkdown,
-    purrr
+    rmarkdown
 VignetteBuilder: knitr

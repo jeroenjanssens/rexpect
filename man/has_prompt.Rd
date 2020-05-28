@@ -7,7 +7,7 @@
 has_prompt(session)
 }
 \arguments{
-\item{session}{A session, window, or pane.}
+\item{session}{A rexpect_session.}
 }
 \description{
 Does session have a prompt?

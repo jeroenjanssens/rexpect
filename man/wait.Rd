@@ -11,9 +11,6 @@ wait(session, duration = 0.1)
 
 \item{duration}{A numerical. Time to wait in seconds. Default: \code{0.1}.}
 }
-\value{
-session
-}
 \description{
 Wait
 }

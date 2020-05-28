@@ -143,15 +143,15 @@
       <tr>
         
         <td>
-          <p><code><a href="bye.html">bye()</a></code> </p>
-        </td>
-        <td><p>End a rexpect session</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="cmd.html">cmd()</a></code> <code><a href="cmd.html">cmd_bash()</a></code> <code><a href="cmd.html">cmd_r()</a></code> <code><a href="cmd.html">cmd_docker()</a></code> <code><a href="cmd.html">cmd_asciinema()</a></code> </p>
         </td>
         <td><p>Command composition</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="exit.html">exit()</a></code> </p>
+        </td>
+        <td><p>End a rexpect session</p></td>
       </tr><tr>
         
         <td>
@@ -192,15 +192,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="send_keys.html">send_keys()</a></code> </p>
-        </td>
-        <td><p>Send keys</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="send_lines.html">send_lines()</a></code> </p>
         </td>
         <td><p>Send literal text</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="send_script.html">send_script()</a></code> </p>
+        </td>
+        <td><p>Send script</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -219,7 +219,7 @@
         <td>
           <p><code><a href="ends_with_prompt.html">ends_with_prompt()</a></code> </p>
         </td>
-        <td><p>Does the contents of a pane end with prompt?</p></td>
+        <td><p>Does the output end with a prompt?</p></td>
       </tr><tr>
         
         <td>
@@ -229,9 +229,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="get_prompt.html">get_prompt()</a></code> </p>
+          <p><code><a href="expect_silence.html">expect_silence()</a></code> </p>
         </td>
-        <td><p>Get the prompt</p></td>
+        <td><p>Expect silence</p></td>
       </tr><tr>
         
         <td>
@@ -241,15 +241,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="prompts.html">prompts</a></code> </p>
+          <p><code><a href="prompt.html">prompt()</a></code> <code><a href="prompt.html">`prompt&lt;-`()</a></code> <code><a href="prompt.html">set_prompt()</a></code> </p>
         </td>
-        <td><p>Common prompt patterns</p></td>
+        <td><p>Prompt of an rexpect session</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="set_prompt.html">set_prompt()</a></code> </p>
+          <p><code><a href="prompts.html">prompts</a></code> </p>
         </td>
-        <td><p>Set the prompt</p></td>
+        <td><p>Commonly used prompts</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -264,6 +264,36 @@
       
       
       <tr>
+        
+        <td>
+          <p><code><a href="cursor.html">cursor()</a></code> </p>
+        </td>
+        <td><p>Get cursor position on screen</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="length.rexpect_session.html">length(<i>&lt;rexpect_session&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Number of lines</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="read_all.html">read_all()</a></code> </p>
+        </td>
+        <td><p>Read all output</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="read_last_line.html">read_last_line()</a></code> </p>
+        </td>
+        <td><p>Read last line</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="read_output.html">read_output()</a></code> </p>
+        </td>
+        <td><p>Read a portion of all output</p></td>
+      </tr><tr>
         
         <td>
           <p><code><a href="read_screen.html">read_screen()</a></code> </p>

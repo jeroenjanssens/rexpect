@@ -16,7 +16,7 @@ cmd_r(command = NULL, vanilla = TRUE)
 
 cmd_docker(command = NULL, image, remove = TRUE, ...)
 
-cmd_asciinema(command, filename = NULL, overwrite = TRUE)
+cmd_asciinema(command = NULL, filename = NULL, overwrite = TRUE)
 }
 \arguments{
 \item{command}{A string.}

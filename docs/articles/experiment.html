@@ -86,21 +86,35 @@
     
     
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">rexpect</span>)
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'rexpect'</span>
+<span class="co">#&gt; The following object is masked from 'package:utils':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     prompt</span>
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">purrr</span>)
 
 <span class="no">parts</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/cmd.html">cmd</a></span>(<span class="st">"sessionInfo()"</span>) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/cmd.html">cmd_r</a></span>() <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/cmd.html">cmd_docker</a></span>(<span class="st">"rocker/tidyverse"</span>) <span class="kw">%&gt;%</span>
   <span class="fu"><a href="../reference/cmd.html">cmd_asciinema</a></span>()
-<span class="co">#&gt; Recording asciicast at /var/folders/8h/88ch3k996hb0t11db8bj9pzh0000gn/T//RtmpjiF0Ih/file7c545d0ba1ef</span>
+<span class="co">#&gt; Recording asciicast at /var/folders/8h/88ch3k996hb0t11db8bj9pzh0000gn/T//Rtmpwbc3ZK/file17bae15be747e</span>
 <span class="no">parts</span>
-<span class="co">#&gt; [1] "asciinema"                                                                    </span>
-<span class="co">#&gt; [2] "rec"                                                                          </span>
-<span class="co">#&gt; [3] "/var/folders/8h/88ch3k996hb0t11db8bj9pzh0000gn/T//RtmpjiF0Ih/file7c545d0ba1ef"</span>
-<span class="co">#&gt; [4] "-q"                                                                           </span>
-<span class="co">#&gt; [5] "--overwrite"                                                                  </span>
-<span class="co">#&gt; [6] "-c"                                                                           </span>
-<span class="co">#&gt; [7] "docker run --rm -i -t rocker/tidyverse R --vanilla -e 'sessionInfo()'"</span>
+<span class="co">#&gt;  [1] "asciinema"                                                                     </span>
+<span class="co">#&gt;  [2] "rec"                                                                           </span>
+<span class="co">#&gt;  [3] "/var/folders/8h/88ch3k996hb0t11db8bj9pzh0000gn/T//Rtmpwbc3ZK/file17bae15be747e"</span>
+<span class="co">#&gt;  [4] "-q"                                                                            </span>
+<span class="co">#&gt;  [5] "--overwrite"                                                                   </span>
+<span class="co">#&gt;  [6] "-c"                                                                            </span>
+<span class="co">#&gt;  [7] "docker"                                                                        </span>
+<span class="co">#&gt;  [8] "run"                                                                           </span>
+<span class="co">#&gt;  [9] "--rm"                                                                          </span>
+<span class="co">#&gt; [10] "-i"                                                                            </span>
+<span class="co">#&gt; [11] "-t"                                                                            </span>
+<span class="co">#&gt; [12] "rocker/tidyverse"                                                              </span>
+<span class="co">#&gt; [13] "R"                                                                             </span>
+<span class="co">#&gt; [14] "--vanilla"                                                                     </span>
+<span class="co">#&gt; [15] "-e"                                                                            </span>
+<span class="co">#&gt; [16] "sessionInfo()"</span>
 
 <span class="co"># s &lt;- spawn(parts)</span>
 <span class="co"># s</span>

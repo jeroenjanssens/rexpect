@@ -49,7 +49,7 @@
   
 
 <meta property="og:title" content="Expect prompt — expect_prompt" />
-<meta property="og:description" content="Block a session until the prompt appears." />
+<meta property="og:description" content="Wait until the prompt appears on the last line." />
 <meta property="og:image" content="/logo.svg" />
 
 
@@ -124,10 +124,10 @@
     </div>
 
     <div class="ref-description">
-    <p>Block a session until the prompt appears.</p>
+    <p>Wait until the prompt appears on the last line.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>expect_prompt</span>(<span class='no'>session</span>, <span class='kw'>time</span> <span class='kw'>=</span> <span class='fl'>0.1</span>)</pre>
+    <pre class="usage"><span class='fu'>expect_prompt</span>(<span class='no'>session</span>, <span class='kw'>interval</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>timeout</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,8 +137,14 @@
       <td><p>A rexpect_session.</p></td>
     </tr>
     <tr>
-      <th>time</th>
-      <td><p>Numerical. Time to wait in seconds between tries.</p></td>
+      <th>interval</th>
+      <td><p>Numerical. Time to wait between tries in seconds.
+Default: 0.1.</p></td>
+    </tr>
+    <tr>
+      <th>timeout</th>
+      <td><p>Numerical. Maximum amount of time to wait.
+Default: <code>NULL</code>.</p></td>
     </tr>
     </table>
 

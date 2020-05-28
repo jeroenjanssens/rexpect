@@ -2,7 +2,7 @@
 % Please edit documentation in R/prompt.R
 \name{ends_with_prompt}
 \alias{ends_with_prompt}
-\title{Does the contents of a pane end with prompt?}
+\title{Does the output end with a prompt?}
 \usage{
 ends_with_prompt(session)
 }
@@ -10,5 +10,5 @@ ends_with_prompt(session)
 \item{session}{A rexpect_session.}
 }
 \description{
-Does the contents of a pane end with prompt?
+Does the output end with a prompt?
 }

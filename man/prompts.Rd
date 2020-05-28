@@ -3,7 +3,7 @@
 \docType{data}
 \name{prompts}
 \alias{prompts}
-\title{Common prompt patterns}
+\title{Commonly used prompts}
 \format{
 An object of class \code{list} of length 6.
 }
@@ -11,6 +11,6 @@ An object of class \code{list} of length 6.
 prompts
 }
 \description{
-Common prompt patterns
+Commonly used prompts
 }
 \keyword{datasets}

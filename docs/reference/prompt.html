@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wait — wait • rexpect</title>
+<title>Prompt of an rexpect session — prompt • rexpect</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Wait — wait" />
-<meta property="og:description" content="Wait" />
+<meta property="og:title" content="Prompt of an rexpect session — prompt" />
+<meta property="og:description" content="Functions to get and set the prompt of an rexpect session. Note: this
+function does not change the prompt of the command that is running." />
 <meta property="og:image" content="/logo.svg" />
 
 
@@ -118,16 +119,21 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Wait</h1>
-    <small class="dont-index">Source: <a href='https://github.com/datascienceworkshops/rexpect/blob/master/R/spawn.R'><code>R/spawn.R</code></a></small>
-    <div class="hidden name"><code>wait.Rd</code></div>
+    <h1>Prompt of an rexpect session</h1>
+    <small class="dont-index">Source: <a href='https://github.com/datascienceworkshops/rexpect/blob/master/R/prompt.R'><code>R/prompt.R</code></a></small>
+    <div class="hidden name"><code>prompt.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Wait</p>
+    <p>Functions to get and set the prompt of an rexpect session. Note: this
+function does not change the prompt of the command that is running.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>wait</span>(<span class='no'>session</span>, <span class='kw'>duration</span> <span class='kw'>=</span> <span class='fl'>0.1</span>)</pre>
+    <pre class="usage"><span class='fu'>prompt</span>(<span class='no'>session</span>)
+
+<span class='fu'>prompt</span>(<span class='no'>session</span>) <span class='kw'>&lt;-</span> <span class='no'>value</span>
+
+<span class='fu'>set_prompt</span>(<span class='no'>session</span>, <span class='no'>prompt</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,11 +143,16 @@
       <td><p>A rexpect_session.</p></td>
     </tr>
     <tr>
-      <th>duration</th>
-      <td><p>A numerical. Time to wait in seconds. Default: <code>0.1</code>.</p></td>
+      <th>prompt</th>
+      <td><p>String containing a regular expression that matches all
+relevant patterns.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>String containing a regular expression that matches all relevant
+patterns.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

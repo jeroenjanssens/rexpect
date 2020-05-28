@@ -26,8 +26,8 @@ navbar:
 reference:
   - title: Spawn
     contents:
-      - bye
       - cmd
+      - exit
       - spawn
 
   - title: Send
@@ -35,20 +35,25 @@ reference:
       - send_backspace
       - send_control_c
       - send_enter
-      - send_keys
       - send_lines
+      - send_script
 
   - title: Expect
     contents:
       - ends_with_prompt
       - expect_prompt
-      - get_prompt
+      - expect_silence
       - has_prompt
+      - prompt
       - prompts
-      - set_prompt
 
   - title: Read
     contents:
+      - cursor
+      - length.rexpect_session
+      - read_all
+      - read_last_line
+      - read_output
       - read_screen
 
   - title: Miscellaneous
