@@ -1,14 +1,23 @@
 #' Expect prompt
 #'
-#' Block a session until the prompt appears.
+#' Wait until the prompt appears on the last line.
 #'
 #' @param session A rexpect_session.
-#' @param time Numerical. Time to wait in seconds between tries.
+#' @param interval Numerical. Time to wait between tries in seconds.
+#'   Default: 0.1.
+#' @param timeout Numerical. Maximum amount of time to wait.
+#'   Default: `NULL`.
 #'
 #' @export
-expect_prompt <- function(session, time = 0.1) {
+expect_prompt <- function(session, interval = 0.1, timeout = NULL) {
+  start <- Sys.time()
   if (has_prompt(session)) {
-    while (!ends_with_prompt(session)) wait(session, time)
+    while (!ends_with_prompt(session)) {
+      Sys.sleep(interval)
+      if (!is.null(timeout) && (Sys.time() - start) >= timeout) {
+        stop("timed out after ", timeout, " seconds", call. = FALSE)
+      }
+    }
   } else {
     warning("session has no prompt", call. = FALSE)
   }
@@ -16,8 +25,43 @@ expect_prompt <- function(session, time = 0.1) {
 }
 
 
-# TODO: expect_silence, duration in seconds
+#' Expect silence
+#'
+#' Wait until the output hasn't changed for a while.
+#'
+#' @param session A rexpect_session.
+#' @param duration Numerical. Time output needs to remain unchanged in seconds.
+#'   Default: 1.
+#' @param interval Numerical. Time to wait between tries in seconds.
+#'   Default: 0.1.
+#' @param timeout Numerical. Maximum amount of time to wait.
+#'   Default: `NULL`.
+#'
+#' @export
+expect_silence <- function(session, duration = 1,
+                           interval = 0.1, timeout = NULL) {
+  start <- Sys.time()
+  timer <- start
+
+  last_activity <- tmuxr::prop(session, "window_activity")
+
+  while (TRUE) {
+    Sys.sleep(interval)
+    activity <- tmuxr::prop(session, "window_activity")
+    if (last_activity != activity) {
+      last_activity <- activity
+      timer <- Sys.time()
+    }
+
+    if ((Sys.time() - timer) >= duration) break
+    if (!is.null(timeout) && (Sys.time() - start) >= timeout) {
+      stop("timed out after ", timeout, " seconds", call. = FALSE)
+    }
+  }
+
+  invisible(session)
+}
+
+
 # TODO: expect_pattern
 # TODO: expect_switch (like case_when)
-# NOTE: timeout in seconds
-# NOTE: on_timeout ("error", "continue", func)
