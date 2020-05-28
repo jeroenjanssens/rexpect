@@ -10,9 +10,9 @@ test_that("everything works", {
   expect_warning(expect_prompt(s))
   prompt(s) <- prompts$bash
   expect_prompt(s)
-  start <- length(s)
   tmuxr::send_keys(s, "a")
   send_backspace(s)
+  start <- length(s)
   send_script(s, c("echo hi",
                    "seq#! literal = FALSE, enter = FALSE",
                    "Space  5#! literal = FALSE, hold = 0.1"),
@@ -20,7 +20,9 @@ test_that("everything works", {
   expect_error(expect_prompt(s, timeout = 1))
   send_enter(s)
   expect_silence(s)
+  expect_prompt(s)
   output <- s[start:(length(s) - 1)]
+  message(output)
   expect_identical(output, c("$ echo hi", "hi", "$ seq 5", "1", "2", "3", "4", "5"))
   expect_identical(tail(s[], -5), s[-c(1:5)])
   expect_error(s[c(-1, 1)])
