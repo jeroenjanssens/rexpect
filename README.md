@@ -5,10 +5,11 @@
 
 [![R build
 status](https://github.com/datascienceworkshops/rexpect/workflows/R-CMD-check/badge.svg)](https://github.com/datascienceworkshops/rexpect/actions)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/rexpect)](https://CRAN.R-project.org/package=rexpect)
+[![codecov](https://codecov.io/gh/datascienceworkshops/rexpect/branch/master/graph/badge.svg)](https://codecov.io/gh/datascienceworkshops/rexpect)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/rexpect)](https://CRAN.R-project.org/package=rexpect)
 
 `rexpect` is an R package that allows you to automate interactions with
 programs that expose a text terminal interface. The API is inspired by
