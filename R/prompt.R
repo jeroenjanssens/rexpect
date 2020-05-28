@@ -1,36 +1,40 @@
-#' Does the contents of a pane end with prompt?
+#' Does the output end with a prompt?
 #'
 #' @param session A rexpect_session.
 #'
 #' @export
 ends_with_prompt <- function(session) {
-  if (!has_prompt(session)) return(FALSE)
-  lines <- tmuxr::capture_pane(session$pane)
-  last_line <- utils::tail(lines[lines != ""], n = 1)
-  (length(last_line) > 0L) && grepl(last_line, session$prompt)
+  has_prompt(session) && grepl(prompt(session), read_last_line(session))
 }
 
 
-#' Get the prompt
+#' Prompt of an rexpect session
+#'
+#' Functions to get and set the prompt of an rexpect session. Note: this
+#' function does not change the prompt of the command that is running.
 #'
 #' @param session A rexpect_session.
+#' @param prompt String containing a regular expression that matches all
+#'   relevant patterns.
 #'
 #' @return String containing a regular expression that matches all relevant
-#' prompts.
+#'   patterns.
 #'
 #' @export
-get_prompt <- function(session) {
+prompt <- function(session) {
   session$prompt
 }
 
 
-#' Set the prompt
-#'
-#' @param session A rexpect_session.
-#' @param prompt String containing a regular expression that matches all
-#' relevant prompts.
-#'
+#' @rdname prompt
 #' @export
+`prompt<-` <- function(session, value) {
+  set_prompt(session, value)
+}
+
+
+#' @export
+#' @rdname prompt
 set_prompt <- function(session, prompt) {
   session$prompt <- prompt
   invisible(session)
@@ -39,19 +43,19 @@ set_prompt <- function(session, prompt) {
 
 #' Does session have a prompt?
 #'
-#' @param session A session, window, or pane.
+#' @param session A rexpect_session.
 #'
 #' @export
 has_prompt <- function(session) {
-  !is.null(get_prompt(session))
+  !is.null(prompt(session))
 }
 
 
-#' Common prompt patterns
+#' Commonly used prompts
 #'
 #' @export
 prompts <- list(
-  bash = "^([^ \\$]*(\\$|#)|>)$",
+  bash = "^(.*(\\$|#)|>)$",
   ipython = "^(In \\[[0-9]+\\]| {6,})|$",
   jupyter = "^(In \\[[0-9]+\\]| {6,})|$",
   python = "^(>>>|\\.\\.\\.)$",
