@@ -58,6 +58,11 @@ send_lines <- function(session, ..., wait = FALSE) {
 
 #' Send script
 #'
+#' @param session A rexpect_session.
+#' @param code A vector of strings.
+#' @param marker A string. Default: `#!`.
+#' @param ... Default values.
+#'
 #' @export
 send_script <- function(session, code, marker = "#!", ...) {
 

@@ -41,16 +41,8 @@ test_that("everything works", {
 })
 
 
-test_that("R works", {
-  command <- cmd_r("seq(as.integer('5')); Sys.sleep(10)")
-  s <- spawn(command)
-  wait(s, 1)
-  expect_identical(s[length(s) - 1], "[1] 1 2 3 4 5")
-  exit(s)
-})
-
-
 test_that("Docker works", {
+  skip_on_cran()
   skip_on_ci()
   command <- cmd_docker(cmd_r("seq(as.integer('5')); Sys.sleep(10)"),
                         "rocker/r-ver:3.5")
@@ -62,6 +54,7 @@ test_that("Docker works", {
 
 
 test_that("asciinema works", {
+  skip_on_cran()
   skip_on_ci()
   command <- cmd_asciinema(cmd_bash(c("PS1='$ ' bash")))
   expect_identical(command[1:2], c("asciinema", "rec"))
@@ -71,5 +64,6 @@ test_that("asciinema works", {
   send_lines(s, "echo hi")
   exit(s)
   output <- processx::run("asciinema", c("cat", filename))$stdout
-  expect_identical(output, "$ echo hi\r\nhi\r\n$ ")
+  expect_match(output, "echo")
+  unlink(filename)
 })

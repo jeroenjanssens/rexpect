@@ -14,7 +14,7 @@ ends_with_prompt <- function(session) {
 #' function does not change the prompt of the command that is running.
 #'
 #' @param session A rexpect_session.
-#' @param prompt String containing a regular expression that matches all
+#' @param value String containing a regular expression that matches all
 #'   relevant patterns.
 #'
 #' @return String containing a regular expression that matches all relevant
@@ -35,8 +35,8 @@ prompt <- function(session) {
 
 #' @export
 #' @rdname prompt
-set_prompt <- function(session, prompt) {
-  session$prompt <- prompt
+set_prompt <- function(session, value) {
+  session$prompt <- value
   invisible(session)
 }
 

@@ -23,12 +23,13 @@ read_last_line <- function(session) {
 #'
 #' Includes the current line.
 #'
-#' @param session A rexpect_session.
+#' @param x A rexpect_session.
 #'
 #' @return An integer.
 #'
 #' @export
-length.rexpect_session <- function(session) {
+length.rexpect_session <- function(x) {
+  session <- x
   on_screen <- cursor(session)[2]
   off_screen <- as.numeric(tmuxr::prop(session, "history_size"))
   on_screen + off_screen
@@ -65,7 +66,7 @@ read_all <- function(session) {
 #' Read a portion of all output
 #'
 #' @param session A rexpect_session.
-#' @param from, to Integers.
+#' @param from,to Integers.
 #'
 #' @return A vector of strings.
 #'

@@ -9,7 +9,7 @@ read_output(session, from, to)
 \arguments{
 \item{session}{A rexpect_session.}
 
-\item{from, }{to Integers.}
+\item{from, to}{Integers.}
 }
 \value{
 A vector of strings.

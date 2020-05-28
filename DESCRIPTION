@@ -22,5 +22,6 @@ Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
 Suggests: 
     testthat,
     knitr,
-    rmarkdown
+    rmarkdown,
+    processx
 VignetteBuilder: knitr

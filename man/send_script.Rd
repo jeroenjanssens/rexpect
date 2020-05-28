@@ -6,6 +6,15 @@
 \usage{
 send_script(session, code, marker = "#!", ...)
 }
+\arguments{
+\item{session}{A rexpect_session.}
+
+\item{code}{A vector of strings.}
+
+\item{marker}{A string. Default: \verb{#!}.}
+
+\item{...}{Default values.}
+}
 \description{
 Send script
 }

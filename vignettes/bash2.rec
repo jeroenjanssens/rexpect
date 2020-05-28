@@ -1,5 +1,0 @@
-{"version": 2, "width": 80, "height": 24, "timestamp": 1588686933, "env": {"SHELL": "/bin/zsh", "TERM": "screen"}}
-[0.132839, "o", "bash-3.2$ \r\u001b[Kbash-3.2$ "]
-[0.622301, "o", "seq 5\r\n"]
-[0.630472, "o", "1\r\n2\r\n3\r\n4\r\n5\r\n"]
-[0.63084, "o", "bash-3.2$ "]

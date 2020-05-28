@@ -4,10 +4,10 @@
 \alias{length.rexpect_session}
 \title{Number of lines}
 \usage{
-\method{length}{rexpect_session}(session)
+\method{length}{rexpect_session}(x)
 }
 \arguments{
-\item{session}{A rexpect_session.}
+\item{x}{A rexpect_session.}
 }
 \value{
 An integer.

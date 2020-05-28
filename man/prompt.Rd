@@ -10,12 +10,12 @@ prompt(session)
 
 prompt(session) <- value
 
-set_prompt(session, prompt)
+set_prompt(session, value)
 }
 \arguments{
 \item{session}{A rexpect_session.}
 
-\item{prompt}{String containing a regular expression that matches all
+\item{value}{String containing a regular expression that matches all
 relevant patterns.}
 }
 \value{

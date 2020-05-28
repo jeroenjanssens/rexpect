@@ -17,7 +17,7 @@ spawn <- function(command, name = NULL, prompt = NULL, width = 80, height = 24) 
                                 height = height)
 
   # get pane
-  pane <- tmuxr::select_pane_active(session)
+  pane <- tmuxr::list_panes(session)[[1]]
   structure(list(id = pane$id,
                  prompt = prompt),
             class = c("rexpect_session", class(pane)))
