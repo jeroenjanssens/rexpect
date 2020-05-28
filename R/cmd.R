@@ -21,7 +21,7 @@ cmd <- function(command = NULL, args = NULL, ...) {
 #' @export
 cmd_bash <- function(command = NULL) {
   parts <- c("bash")
-  if (!is.null(command)) parts <- c(parts, "-c", shQuote(command))
+  if (!is.null(command)) parts <- c(parts, "-c", command)
   parts
 }
 
@@ -31,7 +31,7 @@ cmd_bash <- function(command = NULL) {
 cmd_r <- function(command = NULL, vanilla = TRUE) {
   parts <- c("R")
   if (vanilla) parts <- c(parts, "--vanilla")
-  if (!is.null(command)) parts <- c(parts, "-e", shQuote(command))
+  if (!is.null(command)) parts <- c(parts, "-e", command)
   parts
 }
 
@@ -43,7 +43,9 @@ cmd_docker <- function(command = NULL,
                        remove = TRUE,
                        ...) {
 
-  parts <- c("docker", "run", "--rm", "-i", "-t", image)
+  parts <- c("docker", "run")
+  if (remove) parts <- c(parts, "--rm")
+  parts <- c(parts, "-i", "-t", image)
   if (!is.null(command)) parts <- c(parts, command)
   parts
 }
@@ -51,14 +53,14 @@ cmd_docker <- function(command = NULL,
 
 #' @rdname cmd
 #' @export
-cmd_asciinema <- function(command, filename = NULL, overwrite = TRUE) {
+cmd_asciinema <- function(command = NULL, filename = NULL, overwrite = TRUE) {
   if (is.null(filename)) filename <- tempfile()
 
   message("Recording asciicast at ", filename)
   parts <- c("asciinema", "rec", filename, "-q")
   if (overwrite) parts <- c(parts, "--overwrite")
   if (!is.null(command)) {
-    parts <- c(parts, "-c", paste0(command, collapse = " "))
+    parts <- c(parts, "-c", command)
   }
   parts
 }
