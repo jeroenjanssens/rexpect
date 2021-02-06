@@ -12,7 +12,8 @@
 spawn <- function(command, name = NULL, prompt = NULL, width = 80, height = 24) {
 
   # start tmux session
-  session <- tmuxr::new_session(shell_command = command,
+  session <- tmuxr::new_session(name = name,
+                                shell_command = command,
                                 width = width,
                                 height = height)
 
