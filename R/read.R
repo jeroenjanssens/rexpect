@@ -3,8 +3,8 @@
 #' @param session A rexpect_session.
 #'
 #' @export
-read_screen <- function(session) {
-  tmuxr::capture_pane(session)
+read_screen <- function(session, ...) {
+  tmuxr::capture_pane(session, ...)
 }
 
 
@@ -71,11 +71,11 @@ read_all <- function(session) {
 #' @return A vector of strings.
 #'
 #' @export
-read_output <- function(session, from, to) {
+read_output <- function(session, from, to, ...) {
   off_screen <- as.numeric(tmuxr::prop(session, "history_size"))
   start = from - off_screen - 1
   end = to - off_screen - 1
-  tmuxr::capture_pane(session, start = start, end = end)
+  tmuxr::capture_pane(session, start = start, end = end, ...)
 }
 
 
