@@ -4,7 +4,7 @@
 \alias{expect_silence}
 \title{Expect silence}
 \usage{
-expect_silence(session, duration = 1, interval = 0.1, timeout = NULL)
+expect_silence(session, duration = 1, interval = 0.5, timeout = NULL)
 }
 \arguments{
 \item{session}{A rexpect_session.}
@@ -13,7 +13,7 @@ expect_silence(session, duration = 1, interval = 0.1, timeout = NULL)
 Default: 1.}
 
 \item{interval}{Numerical. Time to wait between tries in seconds.
-Default: 0.1.}
+Default: 0.5.}
 
 \item{timeout}{Numerical. Maximum amount of time to wait.
 Default: \code{NULL}.}

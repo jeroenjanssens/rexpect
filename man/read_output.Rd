@@ -4,12 +4,14 @@
 \alias{read_output}
 \title{Read a portion of all output}
 \usage{
-read_output(session, from, to)
+read_output(session, from, to, ...)
 }
 \arguments{
 \item{session}{A rexpect_session.}
 
 \item{from, to}{Integers.}
+
+\item{...}{Other arguments passed on to \code{tmuxr::capture_pane}.}
 }
 \value{
 A vector of strings.

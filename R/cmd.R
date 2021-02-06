@@ -6,6 +6,7 @@
 #' @param vanilla A logical.
 #' @param remove A logical.
 #' @param image A string.
+#' @param volume A named list.
 #' @param filename A string.
 #' @param overwrite A logical.
 #'

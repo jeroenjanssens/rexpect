@@ -101,7 +101,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/datascienceworkshops/rexpect">
-    <span class="fas fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -133,7 +133,7 @@
 
 <span class='fu'>cmd_r</span><span class='op'>(</span>command <span class='op'>=</span> <span class='cn'>NULL</span>, vanilla <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>cmd_docker</span><span class='op'>(</span>command <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>image</span>, remove <span class='op'>=</span> <span class='cn'>TRUE</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='fu'>cmd_docker</span><span class='op'>(</span>command <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>image</span>, remove <span class='op'>=</span> <span class='cn'>TRUE</span>, volume <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='fu'>cmd_asciinema</span><span class='op'>(</span>command <span class='op'>=</span> <span class='cn'>NULL</span>, filename <span class='op'>=</span> <span class='cn'>NULL</span>, overwrite <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
@@ -163,6 +163,10 @@
     <tr>
       <th>remove</th>
       <td><p>A logical.</p></td>
+    </tr>
+    <tr>
+      <th>volume</th>
+      <td><p>A named list.</p></td>
     </tr>
     <tr>
       <th>filename</th>

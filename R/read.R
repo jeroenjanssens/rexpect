@@ -1,6 +1,7 @@
 #' Read screen
 #'
 #' @param session A rexpect_session.
+#' @param ... Other arguments passed on to `tmuxr::capture_pane`.
 #'
 #' @export
 read_screen <- function(session, ...) {
@@ -67,6 +68,7 @@ read_all <- function(session) {
 #'
 #' @param session A rexpect_session.
 #' @param from,to Integers.
+#' @param ... Other arguments passed on to `tmuxr::capture_pane`.
 #'
 #' @return A vector of strings.
 #'

@@ -4,10 +4,12 @@
 \alias{read_screen}
 \title{Read screen}
 \usage{
-read_screen(session)
+read_screen(session, ...)
 }
 \arguments{
 \item{session}{A rexpect_session.}
+
+\item{...}{Other arguments passed on to \code{tmuxr::capture_pane}.}
 }
 \description{
 Read screen

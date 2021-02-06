@@ -14,7 +14,7 @@ cmd_bash(command = NULL)
 
 cmd_r(command = NULL, vanilla = TRUE)
 
-cmd_docker(command = NULL, image, remove = TRUE, ...)
+cmd_docker(command = NULL, image, remove = TRUE, volume = NULL, ...)
 
 cmd_asciinema(command = NULL, filename = NULL, overwrite = TRUE)
 }
@@ -30,6 +30,8 @@ cmd_asciinema(command = NULL, filename = NULL, overwrite = TRUE)
 \item{image}{A string.}
 
 \item{remove}{A logical.}
+
+\item{volume}{A named list.}
 
 \item{filename}{A string.}
 

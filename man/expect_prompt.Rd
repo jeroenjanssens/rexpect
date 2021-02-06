@@ -4,13 +4,13 @@
 \alias{expect_prompt}
 \title{Expect prompt}
 \usage{
-expect_prompt(session, interval = 0.1, timeout = NULL)
+expect_prompt(session, interval = 0.5, timeout = NULL)
 }
 \arguments{
 \item{session}{A rexpect_session.}
 
 \item{interval}{Numerical. Time to wait between tries in seconds.
-Default: 0.1.}
+Default: 0.5.}
 
 \item{timeout}{Numerical. Maximum amount of time to wait.
 Default: \code{NULL}.}
