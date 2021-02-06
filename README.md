@@ -7,7 +7,7 @@
 status](https://github.com/datascienceworkshops/rexpect/workflows/R-CMD-check/badge.svg)](https://github.com/datascienceworkshops/rexpect/actions)
 [![codecov](https://codecov.io/gh/datascienceworkshops/rexpect/branch/master/graph/badge.svg)](https://codecov.io/gh/datascienceworkshops/rexpect)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/rexpect)](https://CRAN.R-project.org/package=rexpect)
 
@@ -21,8 +21,8 @@ You can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("datascienceworkshops/rexpect")
+# install.packages("remotes")
+remotes::install_github("datascienceworkshops/rexpect")
 ```
 
 ## License

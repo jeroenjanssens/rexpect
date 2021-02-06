@@ -89,6 +89,7 @@ copy_option <- function(a, b, x) {
   a
 }
 
+
 #' @keywords internal
 parse_line_options <- function(line, marker) {
   parts <- strsplit(line, marker)[[1]]
