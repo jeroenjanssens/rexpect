@@ -4,12 +4,12 @@
 #'
 #' @param session A rexpect_session.
 #' @param interval Numerical. Time to wait between tries in seconds.
-#'   Default: 0.1.
+#'   Default: 0.5.
 #' @param timeout Numerical. Maximum amount of time to wait.
 #'   Default: `NULL`.
 #'
 #' @export
-expect_prompt <- function(session, interval = 0.1, timeout = NULL) {
+expect_prompt <- function(session, interval = 0.5, timeout = NULL) {
   start <- Sys.time()
   if (has_prompt(session)) {
     while (!ends_with_prompt(session)) {
@@ -33,13 +33,13 @@ expect_prompt <- function(session, interval = 0.1, timeout = NULL) {
 #' @param duration Numerical. Time output needs to remain unchanged in seconds.
 #'   Default: 1.
 #' @param interval Numerical. Time to wait between tries in seconds.
-#'   Default: 0.1.
+#'   Default: 0.5.
 #' @param timeout Numerical. Maximum amount of time to wait.
 #'   Default: `NULL`.
 #'
 #' @export
 expect_silence <- function(session, duration = 1,
-                           interval = 0.1, timeout = NULL) {
+                           interval = 0.5, timeout = NULL) {
   start <- Sys.time()
   timer <- start
 
