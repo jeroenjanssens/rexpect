@@ -48,7 +48,7 @@ length.rexpect_session <- function(x) {
 #' @export
 cursor <- function(session) {
   x_y <- tmuxr::display_message(session, "#{cursor_x}\n#{cursor_y}")
-  as.numeric(x_y) + c(0, 1) # in tmux, cursor_y starts at 0
+  as.numeric(x_y) + 1 # in tmux, cursor_x and cursor_y start at 0
 }
 
 
