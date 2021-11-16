@@ -43,6 +43,7 @@ cmd_docker <- function(command = NULL,
                        image,
                        remove = TRUE,
                        volume = NULL,
+                       platform = NULL,
                        ...) {
 
   parts <- c("docker", "run")
@@ -52,6 +53,7 @@ cmd_docker <- function(command = NULL,
     volume_parts[c(TRUE,FALSE)] <- "-v"
     parts <- c(parts, volume_parts)
   }
+  if (!is.null(platform)) parts <- c(parts, "--platform", platform)
   parts <- c(parts, "-i", "-t", image)
   if (!is.null(command)) parts <- c(parts, command)
   parts
