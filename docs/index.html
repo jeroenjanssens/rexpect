@@ -4,7 +4,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="rexpect allows you to automate interactions with programs that expose a text terminal interface. The API is inspired by the original Expect tool by Don Libes.">
 <title>Automate Interactions with Textual Interfaces • rexpect</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -12,145 +13,191 @@
 <link rel="apple-touch-icon" type="image/png" sizes="120x120" href="apple-touch-icon-120x120.png">
 <link rel="apple-touch-icon" type="image/png" sizes="76x76" href="apple-touch-icon-76x76.png">
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="apple-touch-icon-60x60.png">
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><link href="extra.css" rel="stylesheet">
 <meta property="og:title" content="Automate Interactions with Textual Interfaces">
-<meta property="og:description" content="rexpect allows you to automate interactions with programs that
-    expose a text terminal interface. The API is inspired by the original
-    Expect tool by Don Libes.">
+<meta property="og:description" content="rexpect allows you to automate interactions with programs that expose a text terminal interface. The API is inspired by the original Expect tool by Don Libes.">
 <meta property="og:image" content="/logo.svg">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body data-spy="scroll" data-target="#toc">
-    <div class="container template-home">
-      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">rexpect</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
-      </span>
-    </div>
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+    
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
+    <nav class="navbar fixed-top navbar-inverse navbar-expand-lg bg-primary" data-bs-theme="inverse"><div class="container">
+    
+    <a class="navbar-brand me-2" href="index.html">rexpect</a>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1.9000</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="active nav-item">
+  <a class="nav-link" href="index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
-<li>
-  <a href="reference/index.html">Reference</a>
+<li class="nav-item">
+  <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/datascienceworkshops/rexpect">
-    <span class="fab fa-github fa-lg"></span>
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/jeroenjanssens/rexpect">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+    
   </div>
-<!--/.container -->
+</nav><div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header">
+<img src="logo.svg" class="logo" alt=""><h1 id="rexpect-">rexpect <a class="anchor" aria-label="anchor" href="#rexpect-"></a>
+</h1>
 </div>
-<!--/.navbar -->
-
-      
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-<div id="rexpect-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#rexpect-" class="anchor"></a>rexpect <img src="reference/figures/logo.png" align="right" width="100px">
-</h1></div>
-
+<p><a href="https://www.tidyverse.org/lifecycle/#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" alt="Lifecycle: stable"></a></p>
 <p><code>rexpect</code> is an R package that allows you to automate interactions with programs that expose a text terminal interface. The API is inspired by the original Expect tool by Don Libes.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"datascienceworkshops/rexpect"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"jeroenjanssens/rexpect"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="license" class="section level2">
-<h2 class="hasAnchor">
-<a href="#license" class="anchor"></a>License</h2>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
+<p>Let’s say we have a Python script that repeatedly asks for a number. When the user enters <code>sum</code>, the script prints the sum of all the numbers. The script exits when the user presses <code>CTRL-C</code>. Here’s the contents of <em>bin/sum.py</em>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="co">#!/usr/bin/env python3</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>numbers <span class="op">=</span> []</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a>    user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">"Enter a number: "</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>    </span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>    <span class="cf">if</span> user_input <span class="op">==</span> <span class="st">"sum"</span>:</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"The sum is: </span><span class="sc">{</span><span class="bu">sum</span>(numbers)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a>        numbers.append(<span class="bu">float</span>(user_input))</span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a>    <span class="cf">except</span> <span class="pp">ValueError</span>:</span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Please enter a valid number."</span>)</span></code></pre></div>
+<p>We can use <code>rexpect</code> to run this script and interact with it. Let’s enter the numbers 7, 13, and 22 and see what the sum is:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/jeroenjanssens/rexpect" class="external-link">rexpect</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'rexpect'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:utils':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     prompt</span></span>
+<span></span>
+<span><span class="va">session</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/spawn.html">spawn</a></span><span class="op">(</span><span class="st">"bin/sum.py"</span>, prompt <span class="op">=</span> <span class="st">"^(.*):$"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/send_lines.html">send_lines</a></span><span class="op">(</span><span class="va">session</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"7"</span>, <span class="st">"13"</span>, <span class="st">"22"</span>, <span class="st">"sum"</span><span class="op">)</span>, wait <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>Under the hood, <code>rexpect</code> starts a tmux session using <a href="https://jeroenjanssens.github.io/tmuxr" class="external-link">tmuxr</a>:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">session</span></span>
+<span><span class="co">#&gt; tmuxr pane 42:1.0: [80x23] [history 0/50000, 3912 bytes] %48 (active)</span></span></code></pre></div>
+<p>We can capture the output and extract the sum:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">output</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_all.html">read_all</a></span><span class="op">(</span><span class="va">session</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Enter a number: 7"   "Enter a number: 13"  "Enter a number: 22" </span></span>
+<span><span class="co">#&gt; [4] "Enter a number: sum" "The sum is: 42.0"    "Enter a number:"</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"[^0-9.]"</span>, <span class="st">""</span>, <span class="va">output</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">output</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 42</span></span></code></pre></div>
+<p>We’ve accomplished our goal, so let’s exit:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/send_lines.html">send_lines</a></span><span class="op">(</span><span class="va">session</span>, <span class="st">"exit"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/read_all.html">read_all</a></span><span class="op">(</span><span class="va">session</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Enter a number: 7"            "Enter a number: 13"          </span></span>
+<span><span class="co">#&gt; [3] "Enter a number: 22"           "Enter a number: sum"         </span></span>
+<span><span class="co">#&gt; [5] "The sum is: 42.0"             "Enter a number: exit"        </span></span>
+<span><span class="co">#&gt; [7] "Please enter a valid number." "Enter a number:"</span></span></code></pre></div>
+<p>Oh that’s right, we need to press <code>CTRL-C</code> to exit the script:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/send_control_c.html">send_control_c</a></span><span class="op">(</span><span class="va">session</span><span class="op">)</span></span></code></pre></div>
+<p>This was a rather simple example to demonstrate some of the capabilities of <code>rexpect</code>. The session could have taken place inside a Docker container or over SSH. We could also have recorded the session using <a href="https://asciinema.org/" class="external-link">asciinema</a>. Have a look at <a href="https://jeroenjanssens.github.io/rexpect/reference/" class="external-link">the function reference</a> to learn more about what <code>rexpect</code> has to offer.</p>
+</div>
+<div class="section level2">
+<h2 id="license">License<a class="anchor" aria-label="anchor" href="#license"></a>
+</h2>
 <p>The <code>rexpect</code> package is licensed under the MIT License.</p>
 </div>
 </div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
-<h2>Links</h2>
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/datascienceworkshops/rexpect/">https://​github.com/​datascienceworkshops/​rexpect/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/datascienceworkshops/rexpect/issues">https://​github.com/​datascienceworkshops/​rexpect/​issues</a>
-</li>
+<li><a href="https://github.com/jeroenjanssens/rexpect/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/jeroenjanssens/rexpect/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing rexpect</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://datascienceworkshops.com">Jeroen Janssens</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-5878-8924" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
-<li>
-<a href="https://datascienceworkshops.com">Data Science Workshops</a> <br><small class="roles"> Copyright holder, funder </small>  </li>
+<a href="https://jeroenjanssens.com" class="external-link">Jeroen Janssens</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-5878-8924" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://github.com/datascienceworkshops/rexpect/actions"><img src="https://github.com/datascienceworkshops/rexpect/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
-<li><a href="https://codecov.io/gh/datascienceworkshops/rexpect"><img src="https://codecov.io/gh/datascienceworkshops/rexpect/branch/master/graph/badge.svg" alt="codecov"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-green.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://CRAN.R-project.org/package=rexpect"><img src="https://www.r-pkg.org/badges/version/rexpect" alt="CRAN status"></a></li>
-</ul>
-</div>
-</div>
+
+
+  </aside>
 </div>
 
 
-      <footer><div class="copyright">
-  <p>Developed by <a href="https://datascienceworkshops.com">Jeroen Janssens</a>, <a href="https://datascienceworkshops.com">Data Science Workshops</a>.</p>
+    <footer><div class="pkgdown-footer-left">
+  <p>Developed by <a href="https://jeroenjanssens.com" class="external-link">Jeroen Janssens</a>.</p>
 </div>
 
-<div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+<div class="pkgdown-footer-right">
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
 
   
 
+  
 
   </body>
 </html>

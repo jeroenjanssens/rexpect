@@ -1,7 +1,7 @@
 ---
 output:
   github_document:
-    html_preview: false
+    html_preview: true
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -17,10 +17,7 @@ knitr::opts_chunk$set(
 
 # rexpect <img src="man/figures/logo.png" align="right" width="100px" />
 
-[![R build status](https://github.com/datascienceworkshops/rexpect/workflows/R-CMD-check/badge.svg)](https://github.com/datascienceworkshops/rexpect/actions)
-[![codecov](https://codecov.io/gh/datascienceworkshops/rexpect/branch/master/graph/badge.svg)](https://codecov.io/gh/datascienceworkshops/rexpect)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-green.svg)](https://www.tidyverse.org/lifecycle/#stable)
-[![CRAN status](https://www.r-pkg.org/badges/version/rexpect)](https://CRAN.R-project.org/package=rexpect)
 
 `rexpect` is an R package that allows you to automate interactions with programs that
 expose a text terminal interface. The API is inspired by the original Expect tool by Don Libes.
@@ -31,8 +28,60 @@ You can install the development version from [GitHub](https://github.com/) with:
 
 ```{r, eval = FALSE}
 # install.packages("remotes")
-remotes::install_github("datascienceworkshops/rexpect")
+remotes::install_github("jeroenjanssens/rexpect")
 ```
+
+
+## Example
+
+Let's say we have a Python script that repeatedly asks for a number.
+When the user enters `sum`, the script prints the sum of all the numbers.
+The script exits when the user presses `CTRL-C`. 
+Here's the contents of _bin/sum.py_:
+
+```{verbatim, file = "bin/sum.py", lang = "python"}
+```
+
+We can use `rexpect` to run this script and interact with it.
+Let's enter the numbers 7, 13, and 22 and see what the sum is:
+
+```{r}
+library(rexpect)
+
+session <- spawn("bin/sum.py", prompt = "^(.*):$")
+send_lines(session, c("7", "13", "22", "sum"), wait = TRUE)
+```
+
+Under the hood, `rexpect` starts a tmux session using [tmuxr](https://jeroenjanssens.github.io/tmuxr):
+
+```{r}
+session
+```
+
+We can capture the output and extract the sum:
+
+```{r}
+print(output <- read_all(session))
+as.numeric(gsub("[^0-9.]", "", output[length(output) - 1]))
+```
+
+We've accomplished our goal, so let's exit:
+
+```{r}
+send_lines(session, "exit")
+read_all(session)
+```
+
+Oh that's right, we need to press `CTRL-C` to exit the script:
+
+```{r}
+send_control_c(session)
+```
+
+This was a rather simple example to demonstrate some of the capabilities of `rexpect`.
+The session could have taken place inside a Docker container or over SSH. 
+We could also have recorded the session using [asciinema](https://asciinema.org/).
+Have a look at [the function reference](https://jeroenjanssens.github.io/rexpect/reference/) to learn more about what `rexpect` has to offer.
 
 ## License
 

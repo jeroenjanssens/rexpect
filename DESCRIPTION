@@ -2,9 +2,8 @@ Package: rexpect
 Title: Automate Interactions with Textual Interfaces
 Version: 0.0.1.9000
 Authors@R: c(
-    person("Jeroen", "Janssens", email = "jeroen@datascienceworkshops.com",
-    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5878-8924")),
-    person("Data Science Workshops", role = c("cph", "fnd"))
+    person("Jeroen", "Janssens", email = "jeroen@jeroenjanssens.com",
+    role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5878-8924"))
     )  
 Description: rexpect allows you to automate interactions with programs that
     expose a text terminal interface. The API is inspired by the original
@@ -13,11 +12,11 @@ Depends: R (>= 3.3.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/datascienceworkshops/rexpect
-BugReports: https://github.com/datascienceworkshops/rexpect/issues
+URL: https://github.com/jeroenjanssens/rexpect
+BugReports: https://github.com/jeroenjanssens/rexpect/issues
 Imports: 
-    tmuxr (>= 0.2.4)
-RoxygenNote: 7.1.1
+    tmuxr (>= 0.2.5)
+RoxygenNote: 7.3.1
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
 Suggests: 
     covr,

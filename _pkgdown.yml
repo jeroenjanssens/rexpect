@@ -2,11 +2,10 @@ destination: docs
 
 authors:
   Jeroen Janssens:
-    href: https://datascienceworkshops.com
-  Data Science Workshops:
-    href: https://datascienceworkshops.com
+    href: https://jeroenjanssens.com
 
 template:
+  bootstrap: 5
   params:
     bootswatch: cosmo
 
@@ -20,7 +19,7 @@ navbar:
       href: reference/index.html
   right:
     - icon: fab fa-github fa-lg
-      href: https://github.com/datascienceworkshops/rexpect
+      href: https://github.com/jeroenjanssens/rexpect
 
 reference:
   - title: Spawn
