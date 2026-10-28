@@ -61,7 +61,7 @@ send_lines(session, c("7", "13", "22", "sum"), wait = TRUE)
 ```
 
 Under the hood, `rexpect` starts a tmux session using
-[tmuxr](https://jeroenjanssens.github.io/tmuxr):
+[tmuxr](https://tmuxr.jeroenjanssens.com):
 
 ``` r
 session
@@ -99,7 +99,7 @@ This was a rather simple example to demonstrate some of the capabilities
 of `rexpect`. The session could have taken place inside a Docker
 container or over SSH. We could also have recorded the session using
 [asciinema](https://asciinema.org/). Have a look at [the function
-reference](https://jeroenjanssens.github.io/rexpect/reference/) to learn
+reference](https://rexpect.jeroenjanssens.com/reference/) to learn
 more about what `rexpect` has to offer.
 
 ## License
